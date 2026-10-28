@@ -318,6 +318,66 @@
 .footer-rule::before,.footer-rule::after{content:"";height:1px;width:60px;background:#5a4f42}
 .footer-rule span{font-family:var(--ff-serif);letter-spacing:4px}
 
+/* ---------- 品类快捷卡行 ---------- */
+.cat-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;padding:14px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card)}
+.cat-chip{padding:8px 18px;border-radius:var(--r-btn);border:1px solid var(--line);background:#fff;color:var(--ink);font-size:14px;font-weight:500;transition:all .2s}
+.cat-chip:hover{border-color:var(--primary);color:var(--primary)}
+.cat-chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* ---------- 搜索框 ---------- */
+.search-box{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:var(--r-input);background:#fff;padding:0 12px;min-height:40px;color:var(--sub)}
+.search-box:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px rgba(154,32,24,.08)}
+.search-box input{border:none;outline:none;background:none;width:160px;font-size:14px;color:var(--ink)}
+
+/* ---------- 已选筛选标签 ---------- */
+.active-filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:18px;padding:12px 14px;background:var(--tint);border-radius:var(--r-input)}
+.af-label{font-size:13px;color:var(--sub);font-weight:600}
+.af-tag{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:var(--r-btn);background:#fff;border:1px solid var(--line);font-size:13px;color:var(--ink);transition:all .2s}
+.af-tag:hover{border-color:var(--danger);color:var(--danger)}
+.af-x{font-size:15px;line-height:1}
+.af-clear{margin-left:auto;font-size:13px;color:var(--primary);text-decoration:underline}
+
+/* ---------- 加载更多 ---------- */
+.load-more-wrap{margin-top:28px}
+
+/* ---------- 产品卡片评分 ---------- */
+.product-card__rate{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--sub);margin-bottom:10px;flex-wrap:wrap}
+.stars{color:var(--accent);letter-spacing:1px;font-size:12px}
+.rt{color:var(--ink);font-weight:600}
+.sales{margin-left:auto}
+
+/* ---------- 筛选面板分组标题样式优化 ---------- */
+.filter-panel .filter-group{margin-bottom:20px}
+
+/* ---------- 新闻相关 ---------- */
+.news-layout{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start}
+.news-list{display:flex;flex-direction:column;gap:20px}
+.news-item{display:grid;grid-template-columns:140px 1fr;gap:20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.news-item:hover{transform:translateY(-3px);box-shadow:var(--sh-card)}
+.news-item__img{aspect-ratio:16/10;overflow:hidden;background:var(--bg-2)}
+.news-item__img svg{width:100%;height:100%}
+.news-item__body{padding:18px 18px 18px 0;display:flex;flex-direction:column}
+.news-item__cat{font-size:12px;color:var(--accent);letter-spacing:1px;margin-bottom:8px}
+.news-item__title{font-family:var(--ff-serif);font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.4}
+.news-item__title a{color:var(--ink)}
+.news-item__title a:hover{color:var(--primary)}
+.news-item__date{font-size:13px;color:var(--sub);margin-bottom:8px}
+.news-item__excerpt{font-size:14px;color:var(--sub);line-height:1.7;flex:1}
+.news-feature{background:linear-gradient(135deg,#2b2420,#3d3229);color:#e8dcc4;border-radius:var(--r-card);padding:28px;margin-bottom:20px;position:relative;overflow:hidden}
+.news-feature::before{content:"訊";position:absolute;font-family:var(--ff-serif);font-size:160px;opacity:.05;right:-20px;top:-30px;color:#fff}
+.news-feature h2{color:#f3e8d0;font-size:22px;margin-bottom:12px;position:relative}
+.news-feature p{font-size:14px;color:#a89a82;line-height:1.7;position:relative}
+.news-feature .news-feature__more{display:inline-block;margin-top:16px;color:var(--accent);font-size:14px;position:relative}
+
+.news-detail h1{font-size:clamp(26px,3.6vw,36px);margin-bottom:12px}
+.news-detail__meta{display:flex;gap:16px;font-size:14px;color:var(--sub);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.news-detail__cat{color:var(--accent);font-weight:600}
+.news-detail__content{font-size:16px;line-height:2;color:var(--ink)}
+.news-detail__content p{margin-bottom:20px}
+.news-detail__content h3{font-size:20px;margin:28px 0 14px}
+.news-detail__back{display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;font-size:14px;color:var(--sub)}
+.news-detail__back:hover{color:var(--primary)}
+
 /* ============================================================
    响应式
    ============================================================ */
@@ -347,6 +407,9 @@
   .cart-summary{position:static}
   .checkout-layout{grid-template-columns:1fr}
   .order-summary{position:static}
+  .news-layout{grid-template-columns:1fr}
+  .news-item{grid-template-columns:100px 1fr;gap:14px}
+  .news-item__body{padding:14px 14px 14px 0}
 }
 @media (max-width:760px){
   .product-grid{grid-template-columns:repeat(2,1fr)}
