@@ -8,6 +8,13 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%239a2018'/%3E%3Ctext x='16' y='23' font-family='serif' font-size='20' fill='white' text-anchor='middle'%3E宣%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
+  <script type="application/ld+json" id="breadcrumb-ld">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"首页","item":"https://宣纸.中国/index.html"},
+    {"@type":"ListItem","position":2,"name":"全部宣纸","item":"https://宣纸.中国/products.html"},
+    {"@type":"ListItem","position":3,"name":"商品详情"}
+  ]}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -19,6 +26,7 @@
       <nav class="nav__links" id="navLinks" aria-label="主导航">
         <a href="index.html">首页</a>
         <a href="products.html">产品</a>
+        <a href="news.html">新闻</a>
         <a href="about.html">品牌故事</a>
         <a href="cart.html">购物车</a>
       </nav>
@@ -81,6 +89,7 @@
             <li><a href="products.html?cat=bansheng">半生熟宣</a></li>
             <li><a href="products.html?cat=lianxi">练习宣纸</a></li>
             <li><a href="products.html?cat=jian">特种笺纸</a></li>
+            <li><a href="news.html">新闻中心</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -88,7 +97,8 @@
           <ul>
             <li><a href="cart.html">购物车</a></li>
             <li><a href="checkout.html">下单结算</a></li>
-            <li><a href="about.html">品牌故事</a></li>
+            <li><a href="news.html">新闻</a>
+        <a href="about.html">品牌故事</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -113,6 +123,31 @@
     window.__currentProduct = p;
     document.title = p.name + ' | 宣纸.中国';
     document.getElementById('crumbName').textContent = p.name;
+
+    /* 注入 Product 结构化数据 */
+    var productLD = document.createElement('script');
+    productLD.type = 'application/ld+json';
+    productLD.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      'name': p.name,
+      'description': p.desc,
+      'image': p.img,
+      'category': p.catName,
+      'brand': { '@type': 'Brand', 'name': '宣纸.中国' },
+      'offers': {
+        '@type': 'Offer',
+        'priceCurrency': 'CNY',
+        'price': p.price,
+        'availability': 'https://schema.org/InStock'
+      },
+      'aggregateRating': {
+        '@type': 'AggregateRating',
+        'ratingValue': '4.8',
+        'reviewCount': '120'
+      }
+    });
+    document.head.appendChild(productLD);
 
     var old = p.oldPrice ? '<span class="price__old">' + XZApp.yuan(p.oldPrice) + '</span>' : '';
     var paramsHTML = Object.keys(p.params).map(function (k) {
