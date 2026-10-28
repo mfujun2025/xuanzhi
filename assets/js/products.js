@@ -187,10 +187,10 @@
       if (clr) { clearAll(); return; }
       if (!t) return;
       var g = t.getAttribute('data-g'), v = t.getAttribute('data-v');
-      if (g === 'cat') state.cats = state.cats.filter(function (x) { return x !== v; }); syncSidebar('cat', state.cats); syncChips();
-      else if (g === 'size') state.sizes = state.sizes.filter(function (x) { return x !== v; }); syncSidebar('size', state.sizes);
-      else if (g === 'mat') state.materials = state.materials.filter(function (x) { return x !== v; }); syncSidebar('mat', state.materials);
-      else if (g === 'craft') state.crafts = state.crafts.filter(function (x) { return x !== v; }); syncSidebar('craft', state.crafts);
+      if (g === 'cat') { state.cats = state.cats.filter(function (x) { return x !== v; }); syncSidebar('cat', state.cats); syncChips(); }
+      else if (g === 'size') { state.sizes = state.sizes.filter(function (x) { return x !== v; }); syncSidebar('size', state.sizes); }
+      else if (g === 'mat') { state.materials = state.materials.filter(function (x) { return x !== v; }); syncSidebar('mat', state.materials); }
+      else if (g === 'craft') { state.crafts = state.crafts.filter(function (x) { return x !== v; }); syncSidebar('craft', state.crafts); }
       else if (g === 'price') { state.price = '0'; var p0 = document.querySelector('input[name="price"][value="0"]'); if (p0) p0.checked = true; }
       else if (g === 'search') { state.search = ''; }
       state.page = 1; render();
