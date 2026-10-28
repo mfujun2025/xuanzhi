@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品详情 | 宣纸.中国</title>
+  <meta name="description" content="宣纸.中国商品详情，生宣、熟宣、半生熟宣、练习宣纸、特种笺纸，泾县原产地手工宣纸。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%239a2018'/%3E%3Ctext x='16' y='23' font-family='serif' font-size='20' fill='white' text-anchor='middle'%3E宣%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="index.html" class="brand" aria-label="宣纸.中国 首页">
+        <span class="brand__seal">宣</span>
+        <span class="brand__name">宣纸.中国<small>XUANZHI.CN</small></span>
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="products.html">产品</a>
+        <a href="about.html">品牌故事</a>
+        <a href="cart.html">购物车</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="cart.html" class="cart-btn" aria-label="购物车">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count" data-cart-count data-zero="true">0</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="展开菜单" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <nav class="breadcrumb" id="breadcrumb" aria-label="路径">
+        <a href="index.html">首页</a><span>/</span>
+        <a href="products.html">全部宣纸</a><span>/</span>
+        <span id="crumbName">商品</span>
+      </nav>
+    </div>
+
+    <section class="section-sm" style="padding-top:0;">
+      <div class="wrap" id="detailRoot">
+        <!-- 由 JS 动态渲染 -->
+        <div class="empty-state"><div class="empty-state__icon">宣</div><h3>商品加载中…</h3></div>
+      </div>
+    </section>
+
+    <!-- 图文介绍 -->
+    <section class="section-sm" id="descSection" style="display:none;">
+      <div class="wrap-narrow" id="descContent"></div>
+    </section>
+
+    <!-- 相关推荐 -->
+    <section class="section-sm section--alt" id="relatedSection" style="display:none;">
+      <div class="wrap">
+        <div class="sec-head"><div class="eyebrow">RELATED</div><h2>相关推荐</h2></div>
+        <div class="product-grid" id="relatedGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-rule"><span>宣纸 · 墨韵 · 匠心</span></div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <span class="brand__seal">宣</span>
+            <span class="brand__name">宣纸.中国<small>XUANZHI.CN</small></span>
+          </div>
+          <p>专注安徽泾县手工宣纸，生熟兼备、品类齐全，传承千年造纸工艺。本站为演示站点，商品信息与价格仅供参考。</p>
+        </div>
+        <div class="footer-col">
+          <h4>产品中心</h4>
+          <ul>
+            <li><a href="products.html?cat=sheng">生宣</a></li>
+            <li><a href="products.html?cat=shu">熟宣</a></li>
+            <li><a href="products.html?cat=bansheng">半生熟宣</a></li>
+            <li><a href="products.html?cat=lianxi">练习宣纸</a></li>
+            <li><a href="products.html?cat=jian">特种笺纸</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>购物指引</h4>
+          <ul>
+            <li><a href="cart.html">购物车</a></li>
+            <li><a href="checkout.html">下单结算</a></li>
+            <li><a href="about.html">品牌故事</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>联系与售后</h4>
+          <p>客服热线：400-XXX-XXXX<br>服务时间：周一至周日 9:00–18:00<br>邮箱：service@xuanzhi.cn<br>地址：安徽省宣城市泾县【待补充】</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 宣纸.中国 · 演示站点 · 商品信息与价格仅供参考</span>
+        <span class="seal-footer">皖ICP备XXXXXXXX号【待补充】</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+  (function () {
+    var id = new URLSearchParams(location.search).get('id');
+    var p = (window.XZ_DATA && XZ_DATA.products.find(function (x) { return x.id === id; })) || XZ_DATA.products[0];
+    window.__currentProduct = p;
+    document.title = p.name + ' | 宣纸.中国';
+    document.getElementById('crumbName').textContent = p.name;
+
+    var old = p.oldPrice ? '<span class="price__old">' + XZApp.yuan(p.oldPrice) + '</span>' : '';
+    var paramsHTML = Object.keys(p.params).map(function (k) {
+      return '<tr><th>' + XZApp.esc(k) + '</th><td>' + XZApp.esc(p.params[k]) + '</td></tr>';
+    }).join('');
+
+    var root = document.getElementById('detailRoot');
+    root.innerHTML =
+      '<div class="detail-layout">' +
+        '<div class="detail-gallery">' +
+          '<div class="detail-gallery__main"><img src="' + p.img + '" alt="' + XZApp.esc(p.name) + ' 商品图"></div>' +
+          '<div class="detail-gallery__thumbs">' +
+            '<div class="detail-gallery__thumb active"><img src="' + p.img + '" alt=""></div>' +
+            '<div class="detail-gallery__thumb"><img src="' + p.img + '" alt=""></div>' +
+            '<div class="detail-gallery__thumb"><img src="' + p.img + '" alt=""></div>' +
+            '<div class="detail-gallery__thumb"><img src="' + p.img + '" alt=""></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="detail-info">' +
+          '<div class="detail-info__cat">' + XZApp.esc(p.catName) + ' · ' + XZApp.esc(p.size) + '</div>' +
+          '<h1>' + XZApp.esc(p.name) + '</h1>' +
+          '<p class="detail-info__desc">' + XZApp.esc(p.desc) + '</p>' +
+          '<div class="detail-price">' +
+            '<span class="price now"><span class="price__sym">¥</span>' + p.price + '</span>' + old +
+            '<span class="badge badge--cat" style="margin-left:auto;">' + XZApp.esc(p.spec) + '</span>' +
+          '</div>' +
+          '<table class="spec-table"><tbody>' + paramsHTML + '</tbody></table>' +
+          '<div class="qty-row">' +
+            '<span class="qty-label">数量</span>' +
+            '<div class="qty-control">' +
+              '<button type="button" data-qty="dec" aria-label="减少">−</button>' +
+              '<input type="number" id="qtyInput" value="1" min="1" data-id="' + p.id + '" aria-label="数量">' +
+              '<button type="button" data-qty="inc" aria-label="增加">＋</button>' +
+            '</div>' +
+            '<span class="muted" style="font-size:13px;">每刀 ' + XZApp.esc(p.spec.split(' · ')[1] || '') + '</span>' +
+          '</div>' +
+          '<div class="detail-actions">' +
+            '<button class="btn btn--primary btn--lg" data-add-cart="' + p.id + '">加入购物车</button>' +
+            '<a href="cart.html" class="btn btn--outline btn--lg">立即购买</a>' +
+          '</div>' +
+          '<div class="detail-meta">' +
+            '<span>✓ 泾县原产地直供</span>' +
+            '<span>✓ 手工捞制</span>' +
+            '<span>✓ 满额包邮</span>' +
+            '<span>✓ 七天无理由</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    /* 数量加减 */
+    var qtyInput = document.getElementById('qtyInput');
+    root.querySelector('[data-qty="inc"]').addEventListener('click', function () {
+      qtyInput.value = parseInt(qtyInput.value) + 1;
+    });
+    root.querySelector('[data-qty="dec"]').addEventListener('click', function () {
+      var v = parseInt(qtyInput.value);
+      if (v > 1) qtyInput.value = v - 1;
+    });
+
+    /* 缩略图切换（演示用，点击高亮） */
+    var thumbs = root.querySelectorAll('.detail-gallery__thumb');
+    thumbs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        thumbs.forEach(function (x) { x.classList.remove('active'); });
+        t.classList.add('active');
+      });
+    });
+
+    /* 加入购物车时取当前数量 */
+    var origAdd = XZCart.add;
+    XZCart.add = function (product, qty) {
+      return origAdd(product, parseInt(qtyInput.value) || 1);
+    };
+
+    /* 图文介绍 */
+    var descSection = document.getElementById('descSection');
+    var descContent = document.getElementById('descContent');
+    descSection.style.display = '';
+    descContent.innerHTML =
+      '<h2>纸品介绍</h2>' +
+      '<p>' + XZApp.esc(p.desc) + '</p>' +
+      '<p>本款「' + XZApp.esc(p.name) + '」选用安徽泾县原产地皮料，依传统手工捞制工艺成纸。纸性' +
+      (p.cat === 'sheng' ? '偏生，吸水润墨，墨韵丰富，落笔层次分明，宜写意、泼墨' :
+      p.cat === 'shu' ? '偏熟，加矾不洇，落笔精准，宜工笔、小楷' :
+      p.cat === 'bansheng' ? '半生半熟，温和可控，书绘两宜' :
+      p.cat === 'lianxi' ? '稳定经济，适合日常临池练习' :
+      '典雅精致，宜作品装裱') +
+      '。</p>' +
+      '<ul>' +
+        '<li>原产工艺：安徽泾县手工捞制，非遗传承</li>' +
+        '<li>纸质特性：柔韧绵韧，纸寿千年，不易虫蛀褪色</li>' +
+        '<li>适用场景：' + (p.cat === 'lianxi' ? '日常临帖、习作、练笔' : '作品创作、装裱、题赠') + '</li>' +
+        '<li>包装规格：' + XZApp.esc(p.spec) + '</li>' +
+      '</ul>' +
+      '<p class="muted" style="font-size:13px;">※ 本商品图为示意占位图，实物色泽与纹理以收到为准。商品信息与价格为演示数据，正式上线前请替换。</p>';
+
+    /* 相关推荐（同品类其他商品） */
+    var rel = XZ_DATA.products.filter(function (x) { return x.cat === p.cat && x.id !== p.id; });
+    if (rel.length === 0) rel = XZ_DATA.products.filter(function (x) { return x.id !== p.id; });
+    rel = rel.slice(0, 4);
+    if (rel.length) {
+      document.getElementById('relatedSection').style.display = '';
+      document.getElementById('relatedGrid').innerHTML = rel.map(function (r) {
+        var ro = r.oldPrice ? '<span class="price__old">' + XZApp.yuan(r.oldPrice) + '</span>' : '';
+        return '<article class="product-card rv in">' +
+          '<a class="product-card__img" href="product.html?id=' + r.id + '">' +
+            '<img src="' + r.img + '" alt="' + XZApp.esc(r.name) + '" loading="lazy">' +
+            (r.hot ? '<span class="badge badge--hot product-card__badge">热销</span>' : '') +
+          '</a>' +
+          '<div class="product-card__body">' +
+            '<div class="product-card__cat">' + XZApp.esc(r.catName) + ' · ' + XZApp.esc(r.size) + '</div>' +
+            '<a href="product.html?id=' + r.id + '"><h3 class="product-card__name">' + XZApp.esc(r.name) + '</h3></a>' +
+            '<div class="product-card__spec">' + XZApp.esc(r.spec) + '</div>' +
+            '<div class="product-card__foot">' +
+              '<div class="product-card__price"><span class="price"><span class="price__sym">¥</span>' + r.price + '</span>' + ro + '</div>' +
+              '<button class="product-card__add" data-add-cart="' + r.id + '" aria-label="加入购物车 ' + XZApp.esc(r.name) + '">' +
+                '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>' +
+              '</button>' +
+            '</div>' +
+          '</div></article>';
+      }).join('');
+    }
+  })();
+  </script>
+</body>
+</html>
