@@ -4,10 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>全部宣纸 — 生宣 · 熟宣 · 半生熟 · 练习 · 笺纸 | 宣纸.中国</title>
-  <meta name="description" content="宣纸.中国全部宣纸品类：生宣、熟宣、半生熟宣、练习宣纸、特种笺纸，支持按品类筛选、按尺寸规格与价格排序，泾县原产地直供。">
+  <meta name="description" content="宣纸.中国全部宣纸品类：生宣、熟宣、半生熟宣、练习宣纸、特种笺纸，支持按品类、尺寸、材质、工艺筛选与价格排序，泾县原产地直供。">
+  <meta name="keywords" content="宣纸,生宣,熟宣,半生熟宣,练习宣纸,特种笺纸,书法纸,泾县宣纸,宣纸选购">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%239a2018'/%3E%3Ctext x='16' y='23' font-family='serif' font-size='20' fill='white' text-anchor='middle'%3E宣%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/pages.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ItemList","name":"宣纸.中国全部宣纸","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"生宣"},
+    {"@type":"ListItem","position":2,"name":"熟宣"},
+    {"@type":"ListItem","position":3,"name":"半生熟宣"},
+    {"@type":"ListItem","position":4,"name":"练习宣纸"},
+    {"@type":"ListItem","position":5,"name":"特种笺纸"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"首页","item":"https://宣纸.中国/index.html"},
+    {"@type":"ListItem","position":2,"name":"全部宣纸"}
+  ]}
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -19,6 +35,7 @@
       <nav class="nav__links" id="navLinks" aria-label="主导航">
         <a href="index.html">首页</a>
         <a href="products.html" class="active">产品</a>
+        <a href="news.html">新闻</a>
         <a href="about.html">品牌故事</a>
         <a href="cart.html">购物车</a>
       </nav>
@@ -41,28 +58,36 @@
 
     <section class="section-sm" style="padding-top:0;">
       <div class="wrap">
-          <div class="sec-head" style="margin-bottom:32px;">
+        <div class="sec-head" style="margin-bottom:24px;">
           <div class="eyebrow">ALL PAPER</div>
           <h1>全部宣纸</h1>
           <p>生熟兼备，按需择纸，泾县原产地直供</p>
         </div>
+
+        <!-- 品类快捷卡行 -->
+        <div class="cat-chips" id="catChips" role="tablist" aria-label="品类快捷筛选"></div>
 
         <div class="shop-layout">
           <!-- 筛选面板 -->
           <aside class="filter-panel" id="filterPanel" aria-label="商品筛选">
             <button class="btn btn--ghost btn--sm btn--block mb-16" data-filter-close style="display:none;">收起筛选</button>
             <h3>筛选条件</h3>
-
             <div class="filter-group">
               <div class="filter-group__title">品类</div>
               <div class="filter-list" id="catFilter"></div>
             </div>
-
             <div class="filter-group">
               <div class="filter-group__title">尺寸规格</div>
               <div class="filter-list" id="sizeFilter"></div>
             </div>
-
+            <div class="filter-group">
+              <div class="filter-group__title">材质</div>
+              <div class="filter-list" id="matFilter"></div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-group__title">工艺</div>
+              <div class="filter-list" id="craftFilter"></div>
+            </div>
             <div class="filter-group">
               <div class="filter-group__title">价格区间</div>
               <div class="filter-list" id="priceFilter">
@@ -72,7 +97,6 @@
                 <label><input type="radio" name="price" value="3"> ¥400 以上</label>
               </div>
             </div>
-
             <button class="btn btn--ghost btn--sm btn--block" id="clearFilters">清除筛选</button>
           </aside>
           <div class="filter-overlay" id="filterOverlay"></div>
@@ -82,12 +106,17 @@
             <div class="shop-toolbar">
               <div class="shop-toolbar__left">
                 <button class="filter-toggle" data-filter-open>☰ 筛选</button>
-                <span class="shop-toolbar__count">共 <b id="resultCount">0</b> 款宣纸</span>
+                <div class="search-box">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="search" id="searchInput" placeholder="搜索宣纸、材质…" aria-label="搜索商品">
+                </div>
               </div>
               <div class="shop-toolbar__right">
-                <label for="sortSelect" style="font-size:14px;color:var(--sub);">排序：</label>
+                <span class="shop-toolbar__count">共 <b id="resultCount">0</b> 款</span>
                 <select id="sortSelect" aria-label="排序方式">
-                  <option value="default">默认</option>
+                  <option value="default">综合</option>
+                  <option value="hot">热销优先</option>
+                  <option value="new">新品优先</option>
                   <option value="price-asc">价格从低到高</option>
                   <option value="price-desc">价格从高到低</option>
                   <option value="size">按尺寸规格</option>
@@ -95,7 +124,11 @@
               </div>
             </div>
 
+            <div class="active-filters hidden" id="activeFilters"></div>
+
             <div class="product-grid" id="productGrid"></div>
+
+            <div class="load-more-wrap"><button class="btn btn--ghost btn--block" id="loadMore" hidden></button></div>
 
             <div class="empty-state hidden" id="emptyState">
               <div class="empty-state__icon">空</div>
@@ -131,11 +164,12 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>购物指引</h4>
+          <h4>资讯与品牌</h4>
           <ul>
+            <li><a href="news.html">新闻中心</a></li>
+            <li><a href="about.html">品牌故事</a></li>
             <li><a href="cart.html">购物车</a></li>
             <li><a href="checkout.html">下单结算</a></li>
-            <li><a href="about.html">品牌故事</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -153,121 +187,6 @@
   <script src="assets/js/data.js"></script>
   <script src="assets/js/cart.js"></script>
   <script src="assets/js/app.js"></script>
-  <script>
-  (function () {
-    var state = { cats: [], sizes: [], price: '0', sort: 'default' };
-
-    /* 读取 URL 初始品类 */
-    var params = new URLSearchParams(location.search);
-    var initCat = params.get('cat');
-    if (initCat && XZ_DATA.categories.find(function (c) { return c.id === initCat; })) {
-      state.cats = [initCat];
-    }
-
-    function buildFilters() {
-      var catBox = document.getElementById('catFilter');
-      catBox.innerHTML = XZ_DATA.categories.map(function (c) {
-        var cnt = XZ_DATA.products.filter(function (p) { return p.cat === c.id; }).length;
-        return '<label><input type="checkbox" value="' + c.id + '"' + (state.cats.indexOf(c.id) > -1 ? ' checked' : '') + '> ' +
-          XZApp.esc(c.name) + '<span class="filter-count">' + cnt + '</span></label>';
-      }).join('');
-
-      var sizeBox = document.getElementById('sizeFilter');
-      sizeBox.innerHTML = XZ_DATA.sizes.map(function (s) {
-        return '<label><input type="checkbox" value="' + XZApp.esc(s) + '"' + (state.sizes.indexOf(s) > -1 ? ' checked' : '') + '> ' + XZApp.esc(s) + '</label>';
-      }).join('');
-
-      /* 事件 */
-      catBox.addEventListener('change', function (e) {
-        if (e.target.type === 'checkbox') {
-          state.cats = XZApp.qsa('input:checked', catBox).map(function (i) { return i.value; });
-          render();
-        }
-      });
-      sizeBox.addEventListener('change', function (e) {
-        if (e.target.type === 'checkbox') {
-          state.sizes = XZApp.qsa('input:checked', sizeBox).map(function (i) { return i.value; });
-          render();
-        }
-      });
-      document.getElementById('priceFilter').addEventListener('change', function (e) {
-        if (e.target.name === 'price') { state.price = e.target.value; render(); }
-      });
-      document.getElementById('sortSelect').addEventListener('change', function (e) {
-        state.sort = e.target.value; render();
-      });
-      document.getElementById('clearFilters').addEventListener('click', clearAll);
-      document.getElementById('emptyClear').addEventListener('click', clearAll);
-    }
-
-    function clearAll() {
-      state = { cats: [], sizes: [], price: '0', sort: state.sort };
-      buildFilters(); render();
-    }
-
-    function inPriceRange(p) {
-      if (state.price === '0') return true;
-      if (state.price === '1') return p.price < 200;
-      if (state.price === '2') return p.price >= 200 && p.price < 400;
-      if (state.price === '3') return p.price >= 400;
-      return true;
-    }
-
-    /* 尺寸排序权重 */
-    var sizeOrder = { '三尺': 1, '四尺对开': 2, '四尺': 3, '斗方': 4, '六尺': 5, '八尺': 6 };
-
-    function getSorted() {
-      var list = XZ_DATA.products.filter(function (p) {
-        var catOk = state.cats.length === 0 || state.cats.indexOf(p.cat) > -1;
-        var sizeOk = state.sizes.length === 0 || state.sizes.indexOf(p.size) > -1;
-        return catOk && sizeOk && inPriceRange(p);
-      });
-      if (state.sort === 'price-asc') list.sort(function (a, b) { return a.price - b.price; });
-      else if (state.sort === 'price-desc') list.sort(function (a, b) { return b.price - a.price; });
-      else if (state.sort === 'size') list.sort(function (a, b) { return (sizeOrder[a.size] || 0) - (sizeOrder[b.size] || 0); });
-      return list;
-    }
-
-    function cardHTML(p) {
-      var old = p.oldPrice ? '<span class="price__old">' + XZApp.yuan(p.oldPrice) + '</span>' : '';
-      return '<article class="product-card rv in">' +
-        '<a class="product-card__img" href="product.html?id=' + p.id + '">' +
-          '<img src="' + p.img + '" alt="' + XZApp.esc(p.name) + ' 商品图" loading="lazy">' +
-          (p.hot ? '<span class="badge badge--hot product-card__badge">热销</span>' : '') +
-        '</a>' +
-        '<div class="product-card__body">' +
-          '<div class="product-card__cat">' + XZApp.esc(p.catName) + ' · ' + XZApp.esc(p.size) + '</div>' +
-          '<a href="product.html?id=' + p.id + '"><h3 class="product-card__name">' + XZApp.esc(p.name) + '</h3></a>' +
-          '<div class="product-card__spec">' + XZApp.esc(p.spec) + '</div>' +
-          '<div class="product-card__foot">' +
-            '<div class="product-card__price"><span class="price"><span class="price__sym">¥</span>' + p.price + '</span>' + old + '</div>' +
-            '<button class="product-card__add" data-add-cart="' + p.id + '" aria-label="加入购物车 ' + XZApp.esc(p.name) + '">' +
-              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>' +
-            '</button>' +
-          '</div>' +
-        '</div></article>';
-    }
-
-    function render() {
-      var list = getSorted();
-      document.getElementById('resultCount').textContent = list.length;
-      var grid = document.getElementById('productGrid');
-      var empty = document.getElementById('emptyState');
-      if (list.length === 0) {
-        grid.innerHTML = '';
-        empty.classList.remove('hidden');
-      } else {
-        empty.classList.add('hidden');
-        grid.innerHTML = list.map(cardHTML).join('');
-      }
-      /* 隐藏移动端筛选关闭按钮（若无筛选） */
-      var closeBtn = document.querySelector('[data-filter-close]');
-      if (closeBtn) closeBtn.style.display = (state.cats.length || state.sizes.length || state.price !== '0') ? 'inline-flex' : 'none';
-    }
-
-    buildFilters();
-    render();
-  })();
-  </script>
+  <script src="assets/js/products.js"></script>
 </body>
 </html>
