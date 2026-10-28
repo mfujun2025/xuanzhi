@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://宣纸.中国/sitemap.xml
