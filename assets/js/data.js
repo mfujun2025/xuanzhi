@@ -140,9 +140,20 @@ window.XZ_DATA = (function () {
     }
   ];
 
+  /* 派生扁平筛选字段，便于列表页筛选 */
+  var materials = ['特净皮', '净皮', '棉料', '云母笺', '清水', '竹料毛边', '洒金熟宣', '仿古熟宣', '蜡染熟宣'];
+  var crafts = ['手工捞制', '加矾砑光', '加矾手工', '半手工', '洒金手工', '染色手工', '蜡染手工'];
+  products.forEach(function (p, i) {
+    p.material = p.params['材质'] || '棉料';
+    p.craft = p.params['工艺'] || '手工捞制';
+    p.isNew = i % 4 === 1; /* 部分标记为新品，供"新品"排序 */
+  });
+
   return {
     categories: categories,
     sizes: sizes,
+    materials: materials,
+    crafts: crafts,
     products: products
   };
 })();
